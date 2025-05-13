@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blank Webpage</title>
+    <style>
+        @font-face {
+            font-family: 'Horizon';
+            src: url('Horizon.woff2') format('woff2'); 
+        }
+        .title {
+            font-family: 'Horizon', sans-serif;
+            font-size: 80px;
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+  
+<style>
+    body {
+        background-image: url('background.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
+    @keyframes swipeDown {
+        0% {
+            transform: translateY(-100%);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    #new-section {
+        animation: swipeDown 1s ease-in-out;
+    }
+</style>
+</div>
+
+<div style="position: absolute; bottom: 0; width: 100%; text-align: center; padding: 10px; background-color: #333; color: white; font-family: 'Horizon', sans-serif;">
+    <a href="#new-section" style="color: white; text-decoration: none;">Go to New Section</a>
+</div>
+<section id="new-section" style="margin-top: 100vh; padding: 20px; background-color: white; font-family: 'Horizon', sans-serif;">
+    <p style="text-align: center;"></p>
+</section>
+<section id="about-us" style="padding: 20px; background-color: #f4f4f4; font-family: 'Horizon', sans-serif;">
+    <h2 style="text-align: center;">About Us</h2>
+    <p style="text-align: center;">Welcome to Tasty Bites! We are passionate about delivering delicious and healthy meals to your doorstep. Our journey began in 2025, and we strive to bring joy to every bite.</p>
+</section>
+<section id="contact-us" style="padding: 20px; background-color: #eaeaea; font-family: 'Horizon', sans-serif;">
+    <h2 style="text-align: center;">Contact Us</h2>
+    <p style="text-align: center;">Have questions or feedback? Reach out to us at <a href="mailto:info@tastybites.com" style="color: #333; text-decoration: none;">info@tastybites.com</a>.</p>
+</section>
+<div style="position: fixed; top: 0; right: 10px; height: 100%; display: flex; align-items: center; z-index: 1000;">
+    <input type="range" min="0" max="100" value="0" id="scroll-slider" style="writing-mode: bt-lr; transform: rotate(-90deg); height: 100%;">
+<script>
+    const slider = document.getElementById('scroll-slider');
+    let isScrolling = false;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+
+    slider.addEventListener('input', () => {
+        if (!isScrolling) {
+            const scrollValue = (slider.value / 100) * maxScroll;
+            window.scrollTo(0, scrollValue);
+        }
+    });
+
+    window.addEventListener('scroll', () => {
+        if (!isScrolling) {
+            const scrollPosition = window.scrollY;
+            slider.value = (scrollPosition / maxScroll) * 100;
+        }
+    });
+
+    window.addEventListener('wheel', (event) => {
+        event.preventDefault();
+        isScrolling = true;
+        const scrollStep = event.deltaY * 2; 
+        const newScrollPosition = Math.min(Math.max(window.scrollY + scrollStep, 0), maxScroll);
+        window.scrollTo(0, newScrollPosition);
+        slider.value = (newScrollPosition / maxScroll) * 100;
+        setTimeout(() => isScrolling = false, 50); 
+    }, { passive: false });
+</script>
+<script>
+    const slider = document.getElementById('scroll-slider');
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+
+    slider.addEventListener('input', () => {
+        const scrollValue = (slider.value / 100) * maxScroll;
+        window.scrollTo(0, scrollValue);
+    });
+
+    window.addEventListener('scroll', () => {
+        const scrollPosition = window.scrollY;
+        slider.value = (scrollPosition / maxScroll) * 100;
+    });
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blank Page</title>
+</head>
+<body>
+</body>
+</html>
+
+<a href="second-page.html" style="position: fixed; bottom: 50px; right: 20px; background-color: #333; color: white; padding: 10px 20px; text-decoration: none; font-family: 'Horizon', sans-serif; border-radius: 5px;">location page</a>
+
+<div style="position: fixed; top: 10px; left: 10px; z-index: 1000;">
+    <button id="login-button" style="padding: 10px 20px; background-color: #333; color: white; border: none; border-radius: 5px; font-family: 'Horizon', sans-serif;">Login</button>
+</div>
+
+<div id="login-modal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 1001; font-family: 'Horizon', sans-serif;">
+    <h2 style="text-align: center;">Login</h2>
+    <form id="login-form">
+        <div style="margin-bottom: 10px;">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required style="width: 100%; padding: 8px; margin-top: 5px;">
+        </div>
+        <div style="margin-bottom: 10px;">
+            <label for="password">Password:</label>
+            <input type="password" id="password" required style="width: 100%; padding: 8px; margin-top: 5px;">
+        </div>
+        <button type="submit" style="width: 100%; padding: 10px; background-color: #333; color: white; border: none; border-radius: 5px;">Login</button>
+    </form>
+    <p style="text-align: center; margin-top: 10px;">Don't have an account? <a href="#" id="register-link" style="color: #333;">Register</a></p>
+</div>
+
+<div id="register-modal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 1001; font-family: 'Horizon', sans-serif;">
+    <h2 style="text-align: center;">Register</h2>
+    <form id="register-form">
+        <div style="margin-bottom: 10px;">
+            <label for="register-email">Email:</label>
+            <input type="email" id="register-email" required style="width: 100%; padding: 8px; margin-top: 5px;">
+        </div>
+        <div style="margin-bottom: 10px;">
+            <label for="register-password">Password:</label>
+            <input type="password" id="register-password" required style="width: 100%; padding: 8px; margin-top: 5px;">
+        </div>
+        <div style="margin-bottom: 10px;">
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" required style="width: 100%; padding: 8px; margin-top: 5px;">
+        </div>
+        <button type="submit" style="width: 100%; padding: 10px; background-color: #333; color: white; border: none; border-radius: 5px;">Register</button>
+    </form>
+</div>
+
+<script>
+    const loginButton = document.getElementById('login-button');
+    const loginModal = document.getElementById('login-modal');
+    const registerModal = document.getElementById('register-modal');
+    const registerLink = document.getElementById('register-link');
+    const loginForm = document.getElementById('login-form');
+    const registerForm = document.getElementById('register-form');
+
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+
+    loginButton.addEventListener('click', () => {
+        loginModal.style.display = 'block';
+    });
+
+    registerLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        loginModal.style.display = 'none';
+        registerModal.style.display = 'block';
+    });
+
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        const user = users.find(user => user.email === email && user.password === password);
+        if (user) {
+            alert('Login successful!');
+            loginModal.style.display = 'none';
+        } else {
+            alert('Invalid email or password.');
+        }
+    });
+
+    registerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('register-email').value;
+        const password = document.getElementById('register-password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
+
+        if (password !== confirmPassword) {
+            alert('Passwords do not match.');
+            return;
+        }
+
+        if (users.some(user => user.email === email)) {
+            alert('Email is already registered.');
+            return;
+        }
+
+        users.push({ email, password });
+        localStorage.setItem('users', JSON.stringify(users));
+        alert('Registration successful!');
+        registerModal.style.display = 'none';
+    });
+    window.addEventListener('click', (e) => {
+        if (e.target === loginModal) loginModal.style.display = 'none';
+        if (e.target === registerModal) registerModal.style.display = 'none';
+    });
+
+
+    const closeLoginModal = document.createElement('button');
+    closeLoginModal.textContent = 'X';
+    closeLoginModal.style.position = 'absolute';
+    closeLoginModal.style.top = '10px';
+    closeLoginModal.style.right = '10px';
+    closeLoginModal.style.background = 'none';
+    closeLoginModal.style.border = 'none';
+    closeLoginModal.style.fontSize = '20px';
+    closeLoginModal.style.cursor = 'pointer';
+    loginModal.appendChild(closeLoginModal);
+
+    closeLoginModal.addEventListener('click', () => {
+        loginModal.style.display = 'none';
+    });
+
+    const closeRegisterModal = document.createElement('button');
+    closeRegisterModal.textContent = 'X';
+    closeRegisterModal.style.position = 'absolute';
+    closeRegisterModal.style.top = '10px';
+    closeRegisterModal.style.right = '10px';
+    closeRegisterModal.style.background = 'none';
+    closeRegisterModal.style.border = 'none';
+    closeRegisterModal.style.fontSize = '20px';
+    closeRegisterModal.style.cursor = 'pointer';
+    registerModal.appendChild(closeRegisterModal);
+
+    closeRegisterModal.addEventListener('click', () => {
+        registerModal.style.display = 'none';
+    });
+</script>
+
+<div id="booking-modal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 1001; font-family: 'Horizon', sans-serif;">
+    <h2 style="text-align: center;">Book a Table</h2>
+    <form id="booking-form">
+        <div style="margin-bottom: 10px;">
+            <label for="booking-time">Time:</label>
+            <input type="time" id="booking-time" required style="width: 100%; padding: 8px; margin-top: 5px;">
+        </div>
+        <div style="margin-bottom: 10px;">
+            <label for="booking-month">Month:</label>
+            <input type="month" id="booking-month" required style="width: 100%; padding: 8px; margin-top: 5px;">
+        </div>
+        <button type="submit" style="width: 100%; padding: 10px; background-color: #333; color: white; border: none; border-radius: 5px;">Book Now</button>
+    </form>
+</div>
+
+<div style="position: fixed; top: 10px; left: 70px; z-index: 1000;">
+    <button id="booking-button" style="padding: 10px 20px; background-color: #333; color: white; border: none; border-radius: 5px; font-family: 'Horizon', sans-serif;">Book a Table</button>
+</div>
+
+<script>
+    const bookingButton = document.getElementById('booking-button');
+    const bookingModal = document.getElementById('booking-modal');
+    const bookingForm = document.getElementById('booking-form');
+
+    bookingButton.addEventListener('click', () => {
+        bookingModal.style.display = 'block';
+    });
+
+    bookingForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const bookingTime = document.getElementById('booking-time').value;
+        const bookingMonth = document.getElementById('booking-month').value;
+
+        alert(`Table booked for ${bookingTime} on ${bookingMonth}`);
+        bookingModal.style.display = 'none';
+    });
+
+    const closeBookingModal = document.createElement('button');
+    closeBookingModal.textContent = 'X';
+    closeBookingModal.style.position = 'absolute';
+    closeBookingModal.style.top = '10px';
+    closeBookingModal.style.right = '10px';
+    closeBookingModal.style.background = 'none';
+    closeBookingModal.style.border = 'none';
+    closeBookingModal.style.fontSize = '20px';
+    closeBookingModal.style.cursor = 'pointer';
+    bookingModal.appendChild(closeBookingModal);
+
+    closeBookingModal.addEventListener('click', () => {
+        bookingModal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+        if (e.target === bookingModal) bookingModal.style.display = 'none';
+    });
+</script>

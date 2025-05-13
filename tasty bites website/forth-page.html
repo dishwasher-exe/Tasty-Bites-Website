@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .booking-container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .booking-container h1 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="booking-container">
+        <h1>Book a Seat</h1>
+        <form id="bookingForm">
+            <div class="form-group">
+                <label for="dateTime">Select Date and Time:</label>
+                <input type="text" id="dateTime" name="dateTime" placeholder="Pick a date and time" required>
+            </div>
+            <button type="submit" class="submit-btn">Book Now</button>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
+    <script>
+        // Initialize the date and time picker
+        flatpickr("#dateTime", {
+            enableTime: true,
+            dateFormat: "Y-m-d H:i",
+            minDate: "today"
+        });
+
+        // Handle form submission
+        document.getElementById('bookingForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const dateTime = document.getElementById('dateTime').value;
+
+            if (!dateTime) {
+                alert('Please select a date and time.');
+                return;
+            }
+
+            // Simulate linking to the account system
+            const userId = "12345"; // Replace with actual user ID from main.html
+            console.log(`Booking made by user ${userId} for ${dateTime}`);
+
+            alert(`Booking confirmed for ${dateTime}`);
+        });
+    </script>
+</body>
+</html>
